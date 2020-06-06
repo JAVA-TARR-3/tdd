@@ -1,4 +1,4 @@
-
+import static package1.StaticCalculator.*;
 
 public class Main {
 
@@ -9,6 +9,6 @@ public class Main {
         Calculator calculator = new Calculator();
         System.out.println(calculator.add(1, 2));
 
-
+        System.out.println(add(1 ,2));
     }
 }
