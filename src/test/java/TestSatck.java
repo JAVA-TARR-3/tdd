@@ -1,11 +1,11 @@
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.EmptyStackException;
 import java.util.Stack;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class TestSatck {
 
     Stack<Object> stack;
@@ -19,16 +19,19 @@ public class TestSatck {
         }
 
         @Test
+        @Order(1)
         public void whenNewIsEmptyTest() {
             assertTrue(stack.isEmpty());
         }
 
         @Test
+        @Order(2)
         public void whenNewPoppedTest() {
             assertThrows(EmptyStackException.class, stack::pop);
         }
 
         @Test
+        @Order(3)
         public void whenNewPeekedTest() {
             assertThrows(EmptyStackException.class, stack::peek);
         }
@@ -46,17 +49,20 @@ public class TestSatck {
         }
 
         @Test
+        @Order(1)
         public void afterPushingNotEmptyTest() {
             assertFalse(stack.isEmpty());
         }
 
         @Test
+        @Order(2)
         public void afterPushingPoppedTest() {
             assertEquals(item, stack.pop());
             assertTrue(stack.isEmpty());
         }
 
         @Test
+        @Order(3)
         public void afterPushingPeekedTest() {
             assertEquals(item, stack.peek());
             assertFalse(stack.isEmpty());
