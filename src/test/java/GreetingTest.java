@@ -25,4 +25,10 @@ public class GreetingTest {
     public void helloNullOrEmptyTest(String name) {
         assertEquals("Witaj, przyjacielu.", greeting.greet(name));
     }
+
+    @Test
+    public void helloArrayTest() {
+        assertEquals("Witaj, Jan i Karolina.", greeting.greet(new String[] { "Jan", "Karolina" }));
+        assertEquals("Witaj, Jan i Karolina.", greeting.greet("Jan", "Karolina" ));
+    }
 }

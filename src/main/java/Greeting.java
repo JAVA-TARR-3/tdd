@@ -1,10 +1,16 @@
 public class Greeting {
-    public String greet(String name) {
+    public String greet(String... names) {
 
-        if (name == null || name.equals("")) {
-            name = "przyjacielu";
+        for (int i = 0; i < names.length; i++) {
+            if (names[i] == null || names[i].equals("")) {
+                names[i] = "przyjacielu";
+            }
         }
 
-        return String.format("Witaj, %s.", name);
+        if (names.length == 1) {
+            return String.format("Witaj, %s.", names[0]);
+        } else {
+            return String.format("Witaj, %s i %s.", names[0], names[1]);
+        }
     }
 }
