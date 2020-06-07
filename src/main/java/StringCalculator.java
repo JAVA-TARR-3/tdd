@@ -1,5 +1,9 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class StringCalculator {
-    public int add(String numbers) {
+    public int add(String numbers) throws Exception {
         if (numbers.length() == 0) {
             return 0;
         }
@@ -23,8 +27,20 @@ public class StringCalculator {
 
         String[] strings = numbers.split(separator);
 
+        List<Integer> negativeNumbers = new ArrayList<>();
+
         for (String s : strings) {
-            result += Integer.parseInt(s);
+            int parsedNumber = Integer.parseInt(s);
+            if (parsedNumber < 0) {
+                negativeNumbers.add(parsedNumber);
+                // throw new Exception("liczby ujemne są niedopuszczalne: " + parsedNumber);
+            }
+
+            result += parsedNumber;
+        }
+
+        if (negativeNumbers.size() > 0) {
+            throw new Exception("liczby ujemne są niedopuszczalne: " + Arrays.toString(negativeNumbers.toArray()));
         }
 
         return result;

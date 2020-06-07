@@ -20,17 +20,29 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void manyNumbresAddTest() {
+    public void manyNumbresAddTest() throws Exception {
         assertEquals(6, stringCalculator.add("1,2,3"));
     }
 
     @Test
-    public void endLineDelimeterTest() {
+    public void endLineDelimeterTest() throws Exception {
         assertEquals(6, stringCalculator.add("1\n2,3"));
     }
 
     @Test
-    public void customLineDelimeterTest() {
+    public void customLineDelimeterTest() throws Exception {
         assertEquals(6, stringCalculator.add("//;\n1;2;3"));
+    }
+
+    @Test
+    public void negativeNumbersTest() {
+        Exception exception = assertThrows(Exception.class, () -> {
+           stringCalculator.add("1,-2,-3");
+        });
+
+        System.out.println(exception.getLocalizedMessage());
+
+        assertTrue(exception.getLocalizedMessage().contains("-2"));
+        assertTrue(exception.getLocalizedMessage().contains("-3"));
     }
 }
