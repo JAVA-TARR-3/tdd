@@ -39,9 +39,9 @@ public class ConditionalDemoTest {
         System.out.println("only on dev");
     }
 
-    @Test
-    @EnabledIf("2 * 3 == 6")
-    public void onlyOnCondition() {
-        System.out.println("only when 2 * 3 == 6 :)");
-    }
+//    @Test
+//    @EnabledIf("2 * 3 == 6")
+//    public void onlyOnCondition() {
+//        System.out.println("only when 2 * 3 == 6 :)");
+//    }
 }
