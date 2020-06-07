@@ -23,4 +23,14 @@ public class StringCalculatorTest {
     public void manyNumbresAddTest() {
         assertEquals(6, stringCalculator.add("1,2,3"));
     }
+
+    @Test
+    public void endLineDelimeterTest() {
+        assertEquals(6, stringCalculator.add("1\n2,3"));
+    }
+
+    @Test
+    public void customLineDelimeterTest() {
+        assertEquals(6, stringCalculator.add("//;\n1;2;3"));
+    }
 }
