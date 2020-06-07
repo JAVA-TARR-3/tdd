@@ -17,8 +17,10 @@ public class StringCalculatorTest {
         assertEquals(0, stringCalculator.add(""));
         assertEquals(1, stringCalculator.add("1"));
         assertEquals(3, stringCalculator.add("1,2"));
-        assertThrows(Exception.class, () -> {
-            stringCalculator.add("1,2,3");
-        });
+    }
+
+    @Test
+    public void manyNumbresAddTest() {
+        assertEquals(6, stringCalculator.add("1,2,3"));
     }
 }

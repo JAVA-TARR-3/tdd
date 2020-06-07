@@ -1,5 +1,5 @@
 public class StringCalculator {
-    public int add(String numbers) throws Exception {
+    public int add(String numbers) {
         if (numbers.length() == 0) {
             return 0;
         }
@@ -7,10 +7,6 @@ public class StringCalculator {
         int result = 0;
 
         String[] strings = numbers.split(",");
-
-        if (strings.length > 2) {
-            throw new Exception();
-        }
 
         for (String s : strings) {
             result += Integer.parseInt(s);
