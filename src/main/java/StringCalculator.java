@@ -33,10 +33,11 @@ public class StringCalculator {
             int parsedNumber = Integer.parseInt(s);
             if (parsedNumber < 0) {
                 negativeNumbers.add(parsedNumber);
-                // throw new Exception("liczby ujemne są niedopuszczalne: " + parsedNumber);
             }
 
-            result += parsedNumber;
+            if (parsedNumber <= 1000) {
+                result += parsedNumber;
+            }
         }
 
         if (negativeNumbers.size() > 0) {
