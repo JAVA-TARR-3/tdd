@@ -1,16 +1,36 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Greeting {
     public String greet(String... names) {
 
         // TODO: dodać obsługę names.length == 0
 
-        for (int i = 0; i < names.length; i++) {
-            if (names[i] == null || names[i].equals("")) {
-                names[i] = "przyjacielu";
+        List<String> formattedNames = new ArrayList<>();
+
+        for (String name : names) {
+            if (name != null) {
+                String[] stringArray = name.split(",");
+
+                for (String stringArrayItem : stringArray) {
+                    formattedNames.add(stringArrayItem.trim());
+                }
+            } else {
+                formattedNames.add(name);
             }
         }
 
-        if (names.length == 1) {
-            return String.format("Witaj, %s.", names[0]);
+        // String[] newNames = (String[]) formattedNames.toArray();
+
+        for (int i = 0; i < formattedNames.size(); i++) {
+            if (formattedNames.get(i) == null || formattedNames.get(i).equals("")) {
+                formattedNames.set(i, "przyjacielu");
+            }
+        }
+
+        if (formattedNames.size() == 1) {
+            return String.format("Witaj, %s.", formattedNames.toArray());
         } else {
             String stringFormat = "Witaj, %s";
 
@@ -24,13 +44,13 @@ public class Greeting {
 //                stringFormat += ", %s";
 //            }
 
-            for (int i = 1; i < names.length - 1; i++) {
+            for (int i = 1; i < formattedNames.size() - 1; i++) {
                 stringFormat += ", %s";
             }
 
             stringFormat += " i %s.";
 
-            return String.format(stringFormat, names);
+            return String.format(stringFormat, formattedNames.toArray());
         }
     }
 }

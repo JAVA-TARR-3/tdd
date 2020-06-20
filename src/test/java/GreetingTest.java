@@ -36,4 +36,9 @@ public class GreetingTest {
     public void helloMultipleNameTest() {
         assertEquals("Witaj, Jan, Karolina, Wojciech i Marta.", greeting.greet("Jan", "Karolina", "Wojciech", "Marta"));
     }
+
+    @Test
+    public void helloMultipleNameInSingleElementTest() {
+        assertEquals("Witaj, Jan, Karolina i Wojciech.", greeting.greet("Jan", "Karolina, Wojciech"));
+    }
 }
