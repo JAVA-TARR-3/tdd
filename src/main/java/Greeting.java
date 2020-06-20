@@ -14,15 +14,21 @@ public class Greeting {
         } else {
             String stringFormat = "Witaj, %s";
 
-            for (int i = 1; i < names.length; i++) {
+//            for (int i = 1; i < names.length; i++) {
+//
+//                if (i == names.length - 1) {
+//                    stringFormat += " i %s.";
+//                    break;
+//                }
+//
+//                stringFormat += ", %s";
+//            }
 
-                if (i == names.length - 1) {
-                    stringFormat += " i %s.";
-                    break;
-                }
-
+            for (int i = 1; i < names.length - 1; i++) {
                 stringFormat += ", %s";
             }
+
+            stringFormat += " i %s.";
 
             return String.format(stringFormat, names);
         }
