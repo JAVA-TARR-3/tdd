@@ -31,4 +31,9 @@ public class GreetingTest {
         assertEquals("Witaj, Jan i Karolina.", greeting.greet(new String[] { "Jan", "Karolina" }));
         assertEquals("Witaj, Jan i Karolina.", greeting.greet("Jan", "Karolina" ));
     }
+
+    @Test
+    public void helloMultipleNameTest() {
+        assertEquals("Witaj, Jan, Karolina, Wojciech i Marta.", greeting.greet("Jan", "Karolina", "Wojciech", "Marta"));
+    }
 }
